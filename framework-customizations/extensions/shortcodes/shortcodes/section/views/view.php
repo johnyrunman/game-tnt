@@ -25,9 +25,10 @@ if ( ! empty( $atts['video'] ) ) {
 
 $section_style   = ( $bg_color || $bg_image ) ? 'style="' . esc_attr($bg_color . $bg_image) . '"' : '';
 $container_class = ( isset( $atts['is_fullwidth'] ) && $atts['is_fullwidth'] ) ? 'fw-container-fluid' : 'fw-container';
-$customclass = ( isset( $atts['customclass'] ) && $atts['customclass'] ) ? ' ' . $atts['customclass'] : '';
+$customclass = ( isset( $atts['customclass'] ) && $atts['customclass'] ) ? ' ' . $atts['customclass'] . '' : ' ';
+$customid = ( isset( $atts['customid'] ) && $atts['customid'] ) ? ' id="' . $atts['customid'] . '"' : ' ';
 ?>
-<section class="fw-main-row <?php echo esc_attr($section_extra_classes) ?>" <?php echo $section_style; ?> <?php echo $bg_video_data_attr; ?>>
+<section<?php echo $customid?> class="fw-main-row<?php echo esc_attr($section_extra_classes) ?><?php echo $customclass?>" <?php echo $section_style; ?> <?php echo $bg_video_data_attr; ?>>
 	<div class="<?php echo esc_attr($container_class); ?>">
 		<?php echo do_shortcode( $content ); ?>
 	</div>
